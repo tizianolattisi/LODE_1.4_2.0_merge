@@ -319,18 +319,21 @@ public class PostProducer extends PostProducerIF {
         };
         //pp.switchOnLine();
         // copy video into distribution dir
-        String[] exts = {"flv", "mp4"};
-        String destinationPath;
-        String originPath;
-        for( String ext: exts ) {
-            destinationPath = distributionDir + File.separator + "content/movie." + ext;
-            originPath = acquisitionPath + File.separator + LODEConstants.MOVIE_FILE + "0" + LODEConstants.MOVIE_EXTENSION + "." + ext;
-            try {
-                fileSystemManager.copyFiles(new File(destinationPath), new File(originPath));
-            } catch (IOException ex) {
-                fileSystemManager.cannotCopyMessage(ex, destinationPath, originPath);
-            }
+        String destinationPath = distributionDir + File.separator + "content/movie.mp4";
+        String originPath = acquisitionPath + File.separator + LODEConstants.MOVIE_FILE + "0" + LODEConstants.MOVIE_EXTENSION;
+        try {
+            fileSystemManager.copyFiles(new File(destinationPath), new File(originPath));
+        } catch (IOException ex) {
+            fileSystemManager.cannotCopyMessage(ex, destinationPath, originPath);
         }
+        destinationPath = distributionDir + File.separator + "content/movie.flv";
+        originPath = acquisitionPath + File.separator + LODEConstants.MOVIE_FILE + "0" + LODEConstants.MOVIE_EXTENSION + ".flv";
+        try {
+            fileSystemManager.copyFiles(new File(destinationPath), new File(originPath));
+        } catch (IOException ex) {
+            fileSystemManager.cannotCopyMessage(ex, destinationPath, originPath);
+        }
+
 
         /*
          * String
