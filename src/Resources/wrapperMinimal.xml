@@ -1,0 +1,32 @@
+<launch4jConfig>
+    <headerType>gui</headerType>
+    <outfile>Lode.exe</outfile>
+    <jar>Lode.jar</jar>
+    <dontWrapJar>false</dontWrapJar>
+    <downloadUrl>http://java.com/download</downloadUrl>
+    <supportUrl>url</supportUrl>
+    <priority>normal|idle|high</priority>
+    <customProcName>false</customProcName>
+    <stayAlive>false</stayAlive>
+    <icon>icon.ico</icon>
+    <classPath>
+        <mainClass>it.unitn.LODE.LODE</mainClass>
+        <cp>classpath</cp>
+        ...
+    </classPath>
+    <singleInstance>
+        <mutexName>LODE</mutexName>
+    </singleInstance>
+    <jre>
+        <minVersion>6.0.0[_00]</minVersion>
+        <initialHeapSize>128MB</initialHeapSize>
+        <maxHeapSize>2048MB</maxHeapSize>
+        <opt>-Djava.library.path=./lib</opt>
+    </jre>
+    <messages>
+        <startupErr>startupErr</startupErr>
+        <bundledJreErr>bundledJreErr</bundledJreErr>
+        <jreVersionErr>jreVersionErr</jreVersionErr>
+        <launcherErr>launcherErr</launcherErr>
+    </messages>
+</launch4jConfig>

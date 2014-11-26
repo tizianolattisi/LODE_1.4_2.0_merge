@@ -1,0 +1,3 @@
+#/bin/sh
+df -k $1 | awk '/dev/ { print $4 }'
+

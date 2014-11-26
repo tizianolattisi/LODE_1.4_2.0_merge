@@ -1,0 +1,26 @@
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:itunesu="http://www.itunesu.com/feed">
+   <channel>
+      <atom:link href="http://###URL-UNDEFINED###" rel="self" type="application/rss+xml"/>
+      <link>http://###URL-UNDEFINED###</link>
+      <description> </description>
+      <lastBuildDate>sab, 31 mar 2012 19:12:12 +0200</lastBuildDate>
+      <language>it</language>
+      <sy:updateFrequency>hourly</sy:updateFrequency>
+      <sy:updatePeriod>1</sy:updatePeriod>
+      <image>
+         <title>IMAGE_TITLE</title>
+         <url>http://###IMAGE-URL-UNDEFINED###</url>
+      </image>
+      <itunes:summary> </itunes:summary>
+      <itunes:subtitle> </itunes:subtitle>
+      <itunes:author>###ITUNES-AUTHOR-UNDEFINED###</itunes:author>
+      <itunes:image>http://###IMAGE-URL-UNDEFINED###</itunes:image>
+      <itunes:category text="Education"/>
+      <itunes:category text="Higher Education"/>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:owner>
+         <itunes:name>Progetto LODE Unitn</itunes:name>
+         <itunes:email>marco.ronchetti@unitn.it</itunes:email>
+      </itunes:owner>
+   </channel>
+</rss>

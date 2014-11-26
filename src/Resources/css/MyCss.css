@@ -1,0 +1,163 @@
+html, body {
+    background-color: #cc00cc;
+    text-align: left;
+}
+#error {
+    text-align : center;
+    width : 100%;
+    margin : auto;
+    top : 20px;
+    position : relative;
+    border-width: 0px;
+    border-style: solid;
+    border-color: #000000;
+    background-color: #ff0022;
+    color: #fefefe;
+}
+#navigation ul
+{
+    list-style: none;
+    display: inline;
+    margin: 4px;
+    padding: 0;
+}
+#navigation ul li
+{
+    display: inline;
+}
+#navigation li a
+{
+    font-size: 15px;
+    line-height: 16px;
+    display: inline;
+    padding-left: 10px;
+    background-position:left;
+    background-repeat:no-repeat;
+    text-decoration: none;
+
+}
+li.selected 
+{
+    font-size: 10px;
+    line-height: 16px;
+    display: inline;
+    padding-left: 10px;
+    background-position:left;
+    background-repeat:no-repeat;
+    text-decoration: none;
+    color: #0099cc;
+}
+
+#navigation li a:hover
+{
+    padding-left: 10px;
+    background-position:left;
+    background-repeat:no-repeat;
+    color: #0099cc;
+    text-decoration: underline;
+}
+#container {
+    text-align : left;
+    width : 1100px;
+    height : 100%;
+    margin : auto;
+    top : 20px;
+    position : relative;
+    padding : 10px 10px 100px 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+    background-color: #ffffff;
+}
+#header{
+    position : relative;
+    margin : auto;
+    width : 1100px;
+    height : 60px;
+}
+#footer{
+    position : absolute;
+    bottom : 20px;
+    width : 1100px;
+    height : 50px;
+}
+#content {
+    position : relative;
+    margin : auto;
+    left : 0;
+    width : 1060px;
+    padding : 20px;
+}
+#infoTable{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 20px;
+    width: 50%;    margin : auto;    text-align: left;    border-collapse: collapse;}#infoTable td{    background-color: #ffcccc;
+                                                                                                   border-top: 1px solid #fff;
+                                                                                                   color: #0;
+}#table{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    margin : auto;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+}
+#tableDownload{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    margin : auto;
+    width: 20%;
+    text-align: left;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+}
+#table thead th.top-left{
+    background-color: #ff99cc;
+}
+#table thead th.top-right{
+    background-color: #ff99cc;
+}
+#table th{
+    padding: 8px;
+    font-weight: normal;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    color: #0;
+    background-color: #ff99cc;
+}
+#table td{
+    padding: 8px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    color: #0;
+    background-color: #ffcccc;
+    border-top: 1px solid #fff;
+}
+#table tfoot td{
+    background-color: #ff9999;
+}
+#table tfoot td.foot-left{
+    background-color: #ff9999;
+}
+#table tfoot td.foot-right{
+    background-color: #ff9999;
+}
+#table tbody td{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+}
+#table tbody tr:hover td{
+    background-color: #990099;
+    color: #0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+    font-family: AlHor;
+    font-size: 14px;
+}

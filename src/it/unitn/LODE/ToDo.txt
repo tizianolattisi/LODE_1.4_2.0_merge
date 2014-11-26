@@ -1,0 +1,76 @@
+RECENTLY DONE
+- fixed JCQ video library
+- added reopen last course
+
+
+DONE IN CURRENT VERSION
+
+- TBC added possibility to recreate slide titles 
+
+
+HIGH PRIORITY TASKS
+- if a lecture is empty the course does not deserialize
+- keep track of slide sources and replace img with better quality
+- import text from pdf
+- check for new versions
+- html log?
+- check for python for the flvi wnen installing lode
+- http://forums.creativecow.net/readpost/190/860795 change speed
+- add focus indicator (for itunesu)
+
+ESSENTIAL FIXES
+
+KNOWN BUGS
+- CoursePublicationLocation generates problems if the course is moved ti another machine,
+or if the location is not writable
+- Lecture home may be empty in LECTURE.XML file. Why?
+- video menu should be fixed or removed
+- there is a non fatal exception when importing jpegs
+- when importing a second set of slides, SLIDES.XML is overwritten and the list
+of timed slides in the interface has problems (the old slides disappear even though
+ the TIMED_SLIDES.XML is fine)
+- importing ppt obtained converting pptx fails - why?
+
+MINOR IMPROVEMENTS
+- Add slide titles to the slide importer progress bar
+- Add more details to course and lectures
+- Add Help
+- *** import jpegs
+- drive PPT via applescript to export slides
+- import odp
+- import pptx
+- charset is wrong when importing pdf text
+
+FEATURES TO BE ADDED
+- upload postprocessed lecture
+- edit slide titles
+- edit course speakers
+- replace placeholders slides after the recording
+- more extensive manual
+- external ppt sinchronization
+
+OTHERS
+- clean code
+- complete javadoc
+- gete better reporting and logging
+
+---- config
+It seems the script inside /Applications/ffmpegX.app/Contents/Resources/flvtool2
+points to
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
+while on my system (10.4.11), and maybe yours as well, it should point to
+/usr/bin/ruby
+because that's where ruby resides on my system.
+You can edit that in any text editor. (I did it with BBEdit.) The "bad interpreter: No such file or directory"-error no longer appears in the log. This fixes the metadata being correctly added to the .flv file.
+With the wrong path in the script, you should get a valid .flv file without the metadata, just like the previous version of ffmpegX. 
+
+//------- FLV
+http://www.webrelatedstuff.com/articles/mac-server-setup/ffmpeg-mac-installation/7
+
+$ cd /usr/local/src
+$ tar -xzvf flvtool2-1.0.6.tgz
+$ cd flvtool2-1.0.6
+$ ruby setup.rb config --prefix=/usr/local
+$ ruby setup.rb setup
+$ sudo ruby setup.rb install
+

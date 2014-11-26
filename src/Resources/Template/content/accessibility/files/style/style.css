@@ -1,0 +1,155 @@
+
+body {
+	font: 140% "Lucida Sans Unicode", verdana, helvetica, sans-serif;
+	line-height: 125%;
+	background: #011;
+	color: #fff;
+}
+
+#chapterlist{width:500px !important;width /**/:510px;
+    height:190px;
+    overflow:auto;padding: 10px;
+    border:1px solid #EEE;}
+
+div.settings{width:700px !important;width /**/:705px;
+    
+	border:1px solid #EEE;
+    background:#993300} 
+	
+	
+form {
+	margin: 0;
+}
+a {
+	color: #edc951;
+
+}
+a:hover {
+/*	border-bottom: 1px dashed #fbcfcf;*/
+	color: #FFFFCC;
+}
+#bg {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+/* Top */
+#top {
+	background: url(border_top.png) left top repeat-x;
+	width: 100%;
+	min-width: 960px;
+	height: 46px;
+	padding-top: 8px;
+	margin-bottom: 1em;
+}
+#titolo {
+	font: 100% "Lucida Sans Unicode", verdana, helvetica, sans-serif;
+	font-style:oblique;
+	display: block;
+}
+
+
+
+
+/* Main wrapper */
+#wrapper {
+	margin-top: 2em;
+	padding-left: 4%;
+	margin-bottom: 2em;
+}
+
+/* Header */
+#header {
+	margin-bottom: 2em;
+}
+
+
+/* Paging */
+#older {
+	float: left;
+}
+#newer {
+	float: right;
+}
+#paging {
+	background: url(../images/entry_line.png) left top no-repeat;
+	padding: 1.2em 0;
+}
+
+/* Bottom */
+#bottom {
+	background: url(border_bottom.png) left top repeat-x;
+	width: 100%;
+	color:#663300;
+	min-width: 960px;
+	height: 120px;
+	overflow: hidden;
+}
+#bottom-info {
+	margin-top: 72px;
+	font-size: .9em;
+}
+#bottom-info #valid {
+	color: #6c685c;
+}
+
+
+
+
+/* Classes */
+.section {
+	margin-bottom: 2em;
+}
+.section h2 {
+	height: 20px;
+	text-indent: -9999px;
+	margin: 0 0 .4em;
+}
+.pipe {
+	margin: 0 .4em;
+}
+
+/* Entry */
+.entry {
+	margin-bottom: 4em;
+}
+.entry-header {
+	background: url(../images/entry_line.png) left bottom no-repeat;
+	margin-bottom: 1.4em;
+	padding-bottom: 1em;
+}
+.entry-header h2 {
+	font-size: 1.6em;
+	font-weight: normal;
+	line-height: 1.2em;
+	margin: 0 0 .4em;
+}
+.entry-header h2 a {
+	color: #fff;
+}
+.entry-header small {
+	color: #fbcfcf;
+}
+.entry-meta {
+	float: left;
+	width: 460px;
+}
+.entry-comments {
+	float: right;
+	width: 38px;
+	height: 47px;
+	background: url(../images/comments_bg.png) left top no-repeat;
+	padding: 16px 0 0 6px;
+	font-size: 1.4em;
+	text-align: center;
+}
+.entry-content object {
+	margin: 0 auto;
+}
+.entry-content .more {
+	text-align: right;
+}

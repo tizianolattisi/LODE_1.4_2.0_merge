@@ -1,0 +1,51 @@
+<theme>
+
+	<fontcolor>
+		<sliderollover>0xbb8800</sliderollover>
+		<slide>0xbbbb00</slide>
+		<list>0x0000aa</list>
+		<lesson>0x000000</lesson>
+		<course>0x000000</course>
+		<time>0xbbbb00</time>
+		<buttons>0x0000aa</buttons>	
+	</fontcolor>
+	
+	<elementcolor>
+		<loadingbar>0x0000ff</loadingbar>
+		<timelinebackground>0xbbbb00</timelinebackground>
+		<timelinebar>0x0000ff</timelinebar>
+		<listselection>0xbbbb00</listselection>
+		<zoomslider>0x0000ff</zoomslider>
+		<zoomtext>0xbbbb00</zoomtext>
+		<appbackground>0xFFFFFF</appbackground>
+	</elementcolor>
+	
+	<text>
+		<largevideo>large video</largevideo>
+		<largeslide>large slide</largeslide>
+		<openslide>Full size slide</openslide>
+		<helpabout>About LODE</helpabout>
+		<helpaboutcontent>--- Lectures On DEmand ---
+	
+The LODE system for lecture 
+recording has been developed
+by Marco Ronchetti at the 
+University of Trento, Italy.
+
+marco.ronchetti@unitn.it
+
+For more info see:
+http://latemar.science.unitn.it/LODE	   
+
+</helpaboutcontent>
+		<swapslidevideo>Slide&lt;-&gt;Video</swapslidevideo>
+		<zoombar>move the cursor to resize video &amp; slide</zoombar>
+		<dinamic_url>LODE home</dinamic_url>
+	</text>
+	
+	<logo>
+		<link>http://latemar.science.unitn.it/LODE 0xee55ff</link>
+		<image>logo.jpg</image>
+	</logo>
+	
+</theme>

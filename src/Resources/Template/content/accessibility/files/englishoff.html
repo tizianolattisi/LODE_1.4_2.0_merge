@@ -1,0 +1,141 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+	<title>LODE - The Accessible Way</title>
+	
+	<!--Open settings data and functions-->
+<script type="text/javascript" src="script/settings.js"></script>
+
+<!--Basic function to control the player via JS-->
+<script type="text/javascript" src="script/jscontrol.js"></script>
+
+<!--Basic function to control the player via shortcut (js)-->
+<script type="text/javascript" src="script/shortcut.js"></script>
+
+
+<!--SWFObject need an object registration-->
+<script type="text/javascript" src="player/swfobject.js"></script>
+		<script type="text/javascript">
+		swfobject.registerObject("idswf", "9.0.0", "expressInstall.swf");
+		</script>
+
+<!--Please note: the next inclusion is the generated javascript file-->
+<script type="text/javascript" src="script/lecture.js"></script>
+
+<!-- CSS and Graphics -->
+	
+	<link rel="stylesheet" type="text/css" href="style/reset.css">
+	<link rel="stylesheet" type="text/css" href="style/text.css">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+<!-- Set English language for javascript contents -->
+	<script type="text/javascript">settings["english"] = true;</script>
+
+</head>
+
+<body>
+<div id="top">
+		<div id="titolo">
+			LODE (Lecture On DEmand) - The Accessible Way (beta)
+		</div>
+		<div class="clear">&nbsp;</div>
+</div>
+
+
+<div id="wrapper" class="container_12">
+
+	
+	<div id="main">
+	
+	<span id="helper"> 
+	Welcome to the accessible LODE page. If you need help <a href="support/help.html" target="_blank">click here.</a> (In italian)<BR>Se vuoi tornare alla pagina in italiano <a href="starter.html">clicca qui.</a>
+	</span>
+	<div id="info-settings"><div id="settings_area" class="settings"><script type="text/javascript">document.write(printsettings())</script></div>
+	<a href="javascript:showhideSettings();">Show/Hide Settings </a>
+	</div>
+		<h1> Course of 	<script type="text/javascript">document.write(getcourse())</script></h1>
+		<h2> Lesson: <script type="text/javascript">document.write(gettitle())</script></h2>
+		
+		<h2> Teacher: <script type="text/javascript">	document.write(getprofessor())</script></h2>
+
+		<div id="infocurrent"><h2>Informations about current slide are not available.</h2><script type="text/javascript">getInfo()</script></div>
+
+		<div id="content">
+
+			<table>
+			<tr valign="center">
+			<td align="left">
+				<div id="slideshow">
+					Slide not found
+				</div>
+			</td>
+			<td align="right">
+			  <div id="player">
+				<script type="text/javascript">
+					var flashvars =
+					{
+					'file':               "../../../"+getfile(),
+
+					'autostart' :         'true',
+					'id':                 'playID'
+					//'streamer':	  'http://azone.altervista.org/flvtests/v5/streamer.php',
+
+					//'type':             'http',
+
+					//'http.startparam': 'start'
+  };
+
+  var params =
+  {
+    'allowscriptaccess':  'always',
+    'allowfullscreen':    'true'
+  };
+
+  var attributes =
+  {
+    'id':                 'playID',
+    'name':               'playID'
+  };
+
+					swfobject.embedSWF('player/player.swf', 'player', '412,5', '330','9.0.124', false, flashvars, params, attributes);
+				</script>
+			 </div>
+			</td>
+			</tr>
+			</table>
+			<table width="100%">
+			<tr>
+				<td valign="top">
+				<p align="center">
+						<a href="javascript:togglePausePlay();">Play/Pause</a> - <a href="javascript:prevSlide();">Previous Slide</a> - <a href="javascript:nextSlide();">Next Slide</a><BR> <a href="javascript:selectView(1);">Split View</a> - <a href="javascript:selectView(2);">Slide View</a> - <a href="javascript:selectView(3);">Video View</a>
+				</p>
+				</td>
+				<td valign="top" align="center" padding="20">
+					<h2>Slide List:</h2>
+					<div id="chapterlist" class="scroll" align="left">
+					<table>
+					<script type="text/javascript">
+					document.write(genchapters());
+					</script>
+					</table>
+					</div>
+				</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div id="bottom">
+	<div id="bottom-wrapper" class="container_12">
+		<div id="bottom-info" class="grid_8">
+			<div id="copy">Copyright © 2010 LODE - not for sale.</div>
+		</div>
+		<div class="clear">&nbsp;</div>
+	</div>
+
+</div>
+</body></html>

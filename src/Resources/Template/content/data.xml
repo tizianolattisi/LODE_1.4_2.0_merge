@@ -1,0 +1,23 @@
+<lezione>
+
+<slide>
+<tempo>0</tempo>
+<titolo>slide title
+</titolo>
+<immagine>img/1.JPG</immagine>
+</slide>
+
+
+<video>
+<nome>movie.flv</nome>
+<totaltime>0</totaltime>
+<starttime>0</starttime>
+</video>
+
+<info>
+<corso>Course</corso>
+<titolo>Lecture</titolo>
+<professore>Speaker</professore>
+<dinamic_url>http://latemar.science.unitn.it/LODE</dinamic_url>
+</info>
+</lezione>
