@@ -296,7 +296,7 @@ public class ActionController implements ActionListener {
             int r = JOptionPane.showConfirmDialog(null, "This will close the current lecture. Are you sure you want to continue?", "Warning!", JOptionPane.YES_NO_OPTION);
             if (r == JOptionPane.OK_OPTION) {
                 programState.resetLecture();
-                acquisitionWindow.clearInstance();
+                //acquisitionWindow.clearInstance();
                 InspectorWindow.getInstance().update();
             }
         } else if (command.equals(EDIT_LECTURE)) {

@@ -70,7 +70,7 @@ public class Recorder {
         JavaSoundAudioDeviceUtils.init();
         QtkitAudioDeviceUtils.init();
       } else if (isCivilVideoCaptureFrameworkAvailable()) {
-        CivilVideoDeviceUtils.init();
+        //CivilVideoDeviceUtils.init();
         JavaSoundAudioDeviceUtils.init();
       }
     }
@@ -88,7 +88,7 @@ public class Recorder {
         QtkitAudioDeviceUtils.dispose();
         JavaSoundAudioDeviceUtils.dispose();
       } else if (isCivilVideoCaptureFrameworkAvailable()) {
-        CivilVideoDeviceUtils.dispose();
+        //CivilVideoDeviceUtils.dispose();
         JavaSoundAudioDeviceUtils.dispose();
       }
     }
