@@ -12,6 +12,7 @@ import it.unitn.LODE.Models.ProgramState;
 import it.unitn.LODE.gui.AcquisitionWindow;
 import it.unitn.LODE.gui.InspectorWindow;
 import it.unitn.LODE.gui.MenuManager;
+import it.unitn.LODE.gui.lode2bind.LODE2Runner;
 import it.unitn.LODE.itunesuMetadata.gui.CourseTablePanel;
 import it.unitn.LODE.itunesuMetadata.gui.LectureTablePanel;
 import it.unitn.LODE.services.PostProducerIF;
@@ -21,7 +22,7 @@ import it.unitn.lodeWeb.noGui.CoursePublisher;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -164,7 +165,14 @@ public class ActionController implements ActionListener {
             } else {
                 //VideoController.getInstance().resetVideo();
                 //acquisitionWindow.setUpMainPanel();
-                    AcquisitionWindow.createAndShow();
+                //AcquisitionWindow.createAndShow();
+                // Apro il cam controller di lode2
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        LODE2Runner.initAndShowGUI();
+                    }
+                });
             }  
          // ======================================================= LODEMENU ======            
         } else if (command.equals(QUIT)) {
