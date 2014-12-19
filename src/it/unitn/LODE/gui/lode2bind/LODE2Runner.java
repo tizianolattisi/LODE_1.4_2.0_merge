@@ -1,5 +1,8 @@
 package it.unitn.LODE.gui.lode2bind;
 
+import it.unitn.LODE.MP.IF.ServiceProviderIF;
+import it.unitn.LODE.MP.constants.LODEConstants;
+import it.unitn.LODE.MP.factories.ServiceProviderFactory;
 import it.unitn.lode2.IOC;
 import it.unitn.lode2.cam.Camera;
 import it.unitn.lode2.cam.ipcam.CameraIPBuilder;
@@ -32,6 +35,14 @@ public class LODE2Runner {
 
     public static void initAndShowGUI() {
 
+        // Nome del file di output
+        String fileName = LODEConstants.MOVIE_FILE;
+        ServiceProviderIF spif = new ServiceProviderFactory().getServiceProvider();
+        String workingDirectory = spif.getCurrentLectureAcquisitionPath();
+        int version = 0;
+        String fileURI = workingDirectory + fileName + version + LODEConstants.MOVIE_EXTENSION;
+
+
         // Inizializzo le utilità in IOC
 
         // Camera
@@ -61,6 +72,7 @@ public class LODE2Runner {
                 .url("/videoMain")
                 .user(USER)
                 .password(PASSWORD)
+                .output(fileURI)
                 .build();
         IOC.registerUtility(recorder, Recorder.class);
 

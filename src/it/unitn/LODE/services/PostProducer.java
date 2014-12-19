@@ -111,6 +111,7 @@ public class PostProducer extends PostProducerIF {
             } else {
                 System.out.println((new Date()) + " Starting to wait - processing lecture " + l.getLectureName());
                 String videoPath = l.getAcquisitionPath() + File.separator + LODEConstants.MOVIE_FILE + "0" + LODEConstants.MOVIE_EXTENSION; /// TODO - THIS SHOULD BE FIXED
+                if( true ) return true; // voglio gestire manualmente
                 retval = retval && _compressVideo(videoPath, false, true, false, true);
                 final PostProducer token = (PostProducer) instance;
                 synchronized (token) {
@@ -188,13 +189,19 @@ public class PostProducer extends PostProducerIF {
                 public void run() {
                     try {
                         p.waitFor();
+                        // : No such file or directory
                     } catch (InterruptedException ex) {
                         ex.printStackTrace(m.getLogger());
                         m.w("Error while writing output of Process " + p.toString(), LODEConstants.MSG_ERROR);
                     }
                     pb.closeWindow();
                     //logger.setVisible(false);
-                    _addFlvMetadata(videoPath + ".flv", createDistribution, showFinalDialog);
+                    //_addFlvMetadata(videoPath + ".flv", createDistribution, showFinalDialog);
+
+                    // Per ora creo solo la distribuzione, poiché non ho flvtool2
+                    //
+                    createDistribution(ProgramState.getInstance().getCurrentLecture(), showFinalDialog);
+
                 }
             ;
             });
@@ -425,7 +432,7 @@ public class PostProducer extends PostProducerIF {
             //"-map","0.0:0.0", //
             "-f", "flv", //4-5 -f: force format
             "-vcodec", "flv", //6-7 -vcoded: Force video codec to codec
-            "-b", "200", //8-9 -b: Set the video bitrate in bit/s (default = 200 kb/s)
+            "-b:v", "200", //8-9 -b: Set the video bitrate in bit/s (default = 200 kb/s)
             "-aspect", "4:3", //10-11 -aspect: Set aspect ratio (4:3, 16:9 or 1.3333, 1.7777)
             "-s", "640x480",// 12-13   "320x240", -s: Set frame size. The format is wxh
             "-r", "25", //14-15 -r: Set frame rate (Hz value, fraction or abbreviation), (default = 25).

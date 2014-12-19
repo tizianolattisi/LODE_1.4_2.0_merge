@@ -165,7 +165,7 @@ public class ActionController implements ActionListener {
             } else {
                 //VideoController.getInstance().resetVideo();
                 //acquisitionWindow.setUpMainPanel();
-                //AcquisitionWindow.createAndShow();
+                AcquisitionWindow.createAndShow();
                 // Apro il cam controller di lode2
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override

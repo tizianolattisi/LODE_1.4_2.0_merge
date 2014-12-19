@@ -260,7 +260,7 @@ public class LODE {
         System.out.println(path);
    
         String actualFFMPEGX_PATH=LODEConstants.FFMPEG_COMMAND;
-        (new ExeExpander()).expandResource(path,actualFFMPEGX_PATH);
+        //(new ExeExpander()).expandResource(path,actualFFMPEGX_PATH);
 
         File ffmpegxFile = new File(actualFFMPEGX_PATH);
         if (!ffmpegxFile.exists()) {

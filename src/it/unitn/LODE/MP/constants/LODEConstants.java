@@ -46,7 +46,8 @@ public class LODEConstants {
     public final static String FFMPEGX_RES_PATH = RS+RESOURCE_ROOT+RS+"ffmpeg.exe";//"/Applications/ffmpegX.app/"; //MAC ONLY
     public final static String FFMPEGX_FS_PATH = FS+RESOURCE_ROOT+FS+"ffmpeg.exe";//"/Applications/ffmpegX.app/"; //MAC ONLY
     //public final static String FFMPEG_COMMAND = FFMPEGX_PATH+RS+"ffmpeg.exe";//Contents/Resources/ffmpeg";  //WIN ONLY
-    public final static String FFMPEG_COMMAND = TEMP_DIR2+FS+"ffmpeg.exe";//Contents/Resources/ffmpeg";  //WIN ONLY
+    //public final static String FFMPEG_COMMAND = TEMP_DIR2+FS+"ffmpeg.exe";//Contents/Resources/ffmpeg";  //WIN ONLY
+    public final static String FFMPEG_COMMAND = "/Applications/ffmpeg/bin/ffmpeg";
     public final static String FFMPEG_AVI_MERGE=LODEConstants.FFMPEGX_PATH+"/Contents/Resources/avimerge"; //MAC ONLY
     public final static String FFMPEG_MENCODER=LODEConstants.FFMPEGX_PATH+"/Contents/Resources/mencoder"; //MAC ONLY
     //public final static String FLVTOOL2_PATH = FFMPEGX_PATH+"Contents/Resources/flvtool2";  //MAC ONLY

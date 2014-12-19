@@ -223,7 +223,7 @@ public class Recorder {
    * @param filename
    */
   public static void startToRecord(int width, int height, String filename) {
-    encoder.start(width, height, filename);
+    //encoder.start(width, height, filename);
     Logger.getLogger(Recorder.class.getName()).log(Level.INFO,
             "Recorder has been started");
   }

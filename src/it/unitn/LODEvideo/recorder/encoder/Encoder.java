@@ -194,11 +194,12 @@ public class Encoder implements Runnable {
 
     System.out.println("");
     System.err.print("Quitting recorder");
+    if( true ) return;
 
     /*
      * Shutdown the encoder executor
      */
-    executor.shutdownNow();
+    //executor.shutdownNow();
 
     /*
      * Take the time to terminate all the task handled by the executor.
