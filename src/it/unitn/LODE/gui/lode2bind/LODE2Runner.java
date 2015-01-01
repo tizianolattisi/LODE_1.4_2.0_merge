@@ -80,7 +80,7 @@ public class LODE2Runner {
         JFrame frame = new JFrame("Cam controller");
         final JFXPanel fxPanel = new JFXPanel();
         frame.add(fxPanel);
-        frame.setSize(800, 600);
+        frame.setSize(1024, 768);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -95,7 +95,7 @@ public class LODE2Runner {
     private static void initFX(JFXPanel fxPanel) {
         try {
             Parent root = FXMLLoader.load(LODE2Runner.class.getResource("/it/unitn/lode2/ui/camctrl.fxml"));
-            Scene scene = new Scene(root, 800, 600);
+            Scene scene = new Scene(root, 1024, 768);
             scene.getStylesheets().add("/it/unitn/lode2/ui/skin/style.css");
             fxPanel.setScene(scene);
         } catch (IOException e) {
