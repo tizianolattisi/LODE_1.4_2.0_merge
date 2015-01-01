@@ -165,14 +165,17 @@ public class ActionController implements ActionListener {
             } else {
                 //VideoController.getInstance().resetVideo();
                 //acquisitionWindow.setUpMainPanel();
-                AcquisitionWindow.createAndShow();
-                // Apro il cam controller di lode2
+                //AcquisitionWindow.createAndShow();
+
+                // Apro il cam controller di lode2, quindi dichiaro il nuovo stato e invoco il refresh dei menu
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
                         LODE2Runner.initAndShowGUI();
                     }
                 });
+                programState.setVideoInited(true);
+                MenuManager.getInstance().updateMenuState();
             }  
          // ======================================================= LODEMENU ======            
         } else if (command.equals(QUIT)) {

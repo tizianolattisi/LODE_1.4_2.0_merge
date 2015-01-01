@@ -41,9 +41,11 @@ public class PDFParser {
         PDFTextParser ptp = new PDFTextParser();
         ArrayList<String> als = ptp.decodeFile(file_name, progressBarFrame);
 
+        /*
         if (ControllersManager.getinstance().getAcquisitionWindow().hasExternalWindow()) {
             scaling = 200;
         }
+        */
         scaling = 100;
         _extractImages(file_name, output_dir, progressBarFrame, lecture, als);
         //extractImages(file_name, output_dir, progressBarFrame, lecture, als);
