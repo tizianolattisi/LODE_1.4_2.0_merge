@@ -4,20 +4,27 @@ import it.unitn.LODE.MP.IF.ServiceProviderIF;
 import it.unitn.LODE.MP.constants.LODEConstants;
 import it.unitn.LODE.MP.factories.ServiceProviderFactory;
 import it.unitn.lode2.IOC;
-import it.unitn.lode2.cam.Camera;
-import it.unitn.lode2.cam.ipcam.CameraIPBuilder;
-import it.unitn.lode2.cam.ipcam.Cmds;
+import it.unitn.lode2.camera.Camera;
+import it.unitn.lode2.camera.ipcam.CameraIPBuilder;
+import it.unitn.lode2.camera.ipcam.Cmds;
 import it.unitn.lode2.recorder.Recorder;
 import it.unitn.lode2.recorder.ipcam.IPRecorderBuilder;
 import it.unitn.lode2.recorder.ipcam.IPRecorderProtocol;
+import it.unitn.lode2.projector.Projector;
+import it.unitn.lode2.projector.raster.RasterProjectorBuilder;
+import it.unitn.lode2.projector.raster.RasterProjectorImpl;
+import it.unitn.lode2.xml.XMLHelper;
+import it.unitn.lode2.xml.ipcam.CameraIPConf;
+import it.unitn.lode2.xml.lecture.Lecture;
+import it.unitn.lode2.xml.slides.LodeSlides;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import org.apache.poi.hslf.record.Record;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -27,11 +34,7 @@ import java.io.IOException;
  */
 public class LODE2Runner {
 
-    private final static String HOST = "192.168.1.143";
-    private final static Integer PORT = 88;
-    private final static String USER = "admin";
-    private final static String PASSWORD = "admin";
-
+    private final static String CAMERA_CONF = "/Users/tiziano/Projects/LODE2/confs/ipcamera/FOSCAM.XML";
 
     public static void initAndShowGUI() {
 
@@ -45,36 +48,57 @@ public class LODE2Runner {
 
         // Inizializzo le utilità in IOC
 
+        // read ip camera configuration
+        CameraIPConf cameraIPConf = XMLHelper.build(CameraIPConf.class).unmarshal(new File(CAMERA_CONF));
+
         // Camera
         Camera camera = CameraIPBuilder.create()
-                .user(USER)
-                .password(PASSWORD)
-                .host(HOST)
-                .port(PORT)
-                .template(Cmds.ZOOMIN, "/cgi-bin/CGIProxy.fcgi?cmd=zoomIn&usr=${user}&pwd=${password}")
-                .template(Cmds.ZOOMOUT, "/cgi-bin/CGIProxy.fcgi?cmd=zoomOut&usr=${user}&pwd=${password}")
-                .template(Cmds.ZOOMSTOP, "/cgi-bin/CGIProxy.fcgi?cmd=zoomStop&usr=${user}&pwd=${password}")
-                .template(Cmds.PANLEFT, "/cgi-bin/CGIProxy.fcgi?cmd=ptzMoveLeft&usr=${user}&pwd=${password}")
-                .template(Cmds.PANRIGHT, "/cgi-bin/CGIProxy.fcgi?cmd=ptzMoveRight&usr=${user}&pwd=${password}")
-                .template(Cmds.PANSTOP, "/cgi-bin/CGIProxy.fcgi?cmd=ptzStopRun&usr=${user}&pwd=${password}")
-                .template(Cmds.TILTUP, "/cgi-bin/CGIProxy.fcgi?cmd=ptzMoveUp&usr=${user}&pwd=${password}")
-                .template(Cmds.TILTDOWN, "/cgi-bin/CGIProxy.fcgi?cmd=ptzMoveDown&usr=${user}&pwd=${password}")
-                .template(Cmds.TILTSTOP, "/cgi-bin/CGIProxy.fcgi?cmd=ptzStopRun&usr=${user}&pwd=${password}")
-                .template(Cmds.SNAPSHOT, "/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=${user}&pwd=${password}")
+                .user(cameraIPConf.getUser())
+                .password(cameraIPConf.getPassword())
+                .host(cameraIPConf.getHost())
+                .port(cameraIPConf.getCgiPort())
+                .template(Cmds.ZOOMIN, cameraIPConf.getZoomIn())
+                .template(Cmds.ZOOMOUT, cameraIPConf.getZoomOut())
+                .template(Cmds.ZOOMSTOP, cameraIPConf.getZoomStop())
+                .template(Cmds.PANLEFT, cameraIPConf.getPanLeft())
+                .template(Cmds.PANRIGHT, cameraIPConf.getPanRight())
+                .template(Cmds.PANSTOP, cameraIPConf.getPanStop())
+                .template(Cmds.TILTUP, cameraIPConf.getTiltUp())
+                .template(Cmds.TILTDOWN, cameraIPConf.getTiltDown())
+                .template(Cmds.TILTSTOP, cameraIPConf.getTiltStop())
+                .template(Cmds.SNAPSHOT, cameraIPConf.getSnapshot())
+                .template(Cmds.PRESET, cameraIPConf.getPreset())
                 .build();
         IOC.registerUtility(camera, Camera.class);
 
         // Recorder
         Recorder recorder = IPRecorderBuilder.create()
-                .protocol(IPRecorderProtocol.RTSP)
-                .host(HOST)
-                .port(PORT)
-                .url("/videoMain")
-                .user(USER)
-                .password(PASSWORD)
+                .protocol(IPRecorderProtocol.valueOf(cameraIPConf.getStreamProtocol()))
+                .host(cameraIPConf.getHost())
+                .port(cameraIPConf.getStreamPort())
+                .url(cameraIPConf.getStreamUrl())
+                .user(cameraIPConf.getUser())
+                .password(cameraIPConf.getPassword())
                 .output(fileURI)
                 .build();
         IOC.registerUtility(recorder, Recorder.class);
+
+        // Lecture and Slide configuration
+        Lecture lecture = XMLHelper.build(Lecture.class).unmarshal(new File(workingDirectory + "LECTURE.XML"));
+        LodeSlides lodeSlides = XMLHelper.build(LodeSlides.class).unmarshal(new File(workingDirectory + "SLIDES.XML"));
+
+        RasterProjectorBuilder projectorBuilder = RasterProjectorBuilder.create();
+        /*for( LodeSlide slide: lodeSlides.getSlides().getSlides() ){
+            URL url = null;
+            try {
+                url = (new File(workingDirectory + slide.getFileName())).toURI().toURL();
+                projectorBuilder = projectorBuilder.slide(new RasterSlideImpl(url, slide.getTitle(), ""));
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }*/
+        RasterProjectorImpl projector = projectorBuilder.build();
+        IOC.registerUtility(projector, Projector.class);
 
         // Inizializzo il frame che conterrà la scena fx
         JFrame frame = new JFrame("Cam controller");

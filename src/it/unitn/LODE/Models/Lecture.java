@@ -70,7 +70,8 @@ public class Lecture extends StorableAsXML implements Serializable {
         }
         String lecturePath=File.separator +dirName+LODEConstants.FS; //path relativa
         courseRef = LODEConstants.COURSES_HOME + LODEConstants.FS + courseHome;
-        acquisitionPath=courseRef+LODEConstants.FS+LODEConstants.ACQUISITION_SUBDIR+lecturePath;
+        //acquisitionPath=courseRef+LODEConstants.FS+LODEConstants.ACQUISITION_SUBDIR+lecturePath;
+        acquisitionPath=courseRef+LODEConstants.ACQUISITION_SUBDIR+lecturePath;
         distributionPath=courseRef+LODEConstants.FS+LODEConstants.DISTRIBUTION_SUBDIR+lecturePath;
         iTunesuDistributionPath=courseRef+LODEConstants.FS+LODEConstants.ITUNESU_DISTRIBUTION_SUBDIR+lecturePath;
         String timedSlidesPath=acquisitionPath + File.separator + LODEConstants.TIMED_SLIDES_XML;

@@ -111,7 +111,7 @@ public class PostProducer extends PostProducerIF {
             } else {
                 System.out.println((new Date()) + " Starting to wait - processing lecture " + l.getLectureName());
                 String videoPath = l.getAcquisitionPath() + File.separator + LODEConstants.MOVIE_FILE + "0" + LODEConstants.MOVIE_EXTENSION; /// TODO - THIS SHOULD BE FIXED
-                if( true ) return true; // voglio gestire manualmente
+                //if( true ) return true; // voglio gestire manualmente
                 retval = retval && _compressVideo(videoPath, false, true, false, true);
                 final PostProducer token = (PostProducer) instance;
                 synchronized (token) {

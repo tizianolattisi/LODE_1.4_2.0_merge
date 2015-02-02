@@ -168,12 +168,7 @@ public class ActionController implements ActionListener {
                 //AcquisitionWindow.createAndShow();
 
                 // Apro il cam controller di lode2, quindi dichiaro il nuovo stato e invoco il refresh dei menu
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        LODE2Runner.initAndShowGUI();
-                    }
-                });
+                //SwingUtilities.invokeLater(() -> LODE2Runner.initAndShowGUI());
                 programState.setVideoInited(true);
                 MenuManager.getInstance().updateMenuState();
             }  
@@ -319,8 +314,10 @@ public class ActionController implements ActionListener {
         // ========================================= POST-PROCESS AND PUBLISH ==
         } else if (command.equals(POST_PROCESS_ONE)) {
             PostProducerIF pp=controllersManager.getPostProducer();
+            //pp.convertVideo(programState.getCurrentLecture().getAcquisitionPath()
+            //        + LODEConstants.FS + LODEConstants.MOVIE_FILE + "0" + LODEConstants.MOVIE_EXTENSION); // TODO - THIS SHOULD BE FIXED!
             pp.convertVideo(programState.getCurrentLecture().getAcquisitionPath()
-                    + LODEConstants.FS + LODEConstants.MOVIE_FILE + "0" + LODEConstants.MOVIE_EXTENSION); // TODO - THIS SHOULD BE FIXED!
+                    + LODEConstants.MOVIE_FILE + "0" + LODEConstants.MOVIE_EXTENSION); // TODO - THIS SHOULD BE FIXED!
         } else if (command.equals(POST_PROCESS_COURSE)) {
             controllersManager.getPostProducer().convertAllLecturesInCourse(new File(programState.getCurrentCourse().getFullPath()));
         } else if (command.equals(POST_PROCESS_ALL)) {
